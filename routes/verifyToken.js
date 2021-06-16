@@ -7,6 +7,7 @@ module.exports =function auth(req,res,next){
     try{
         const verified = jwt.verify(token,"jksfhmdnbvdfhsdggv");
         req.user = verified;
+        next();
     }
     catch(err){
        res.status(400).send('Invalid token')
